@@ -1,6 +1,6 @@
 /*
-* Author： qiaomu@ifmuse.com
-* Date: 2016/06/01
+* 功能 ：加载默认页面
+* 
 */
 (function(){
   function main(){
