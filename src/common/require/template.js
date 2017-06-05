@@ -1,6 +1,5 @@
 /*
-* Author： qiaomu@ifmuse.com
-* Date: 2016/06/01
+* 功能 ：利用underscore的模版功能，加载模版
 */
 define(["if!_"], function (_) {
 	var template = {

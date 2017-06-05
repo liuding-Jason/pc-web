@@ -1,6 +1,6 @@
 /*
-* Author： qiaomu@ifmuse.com
-* Date: 2016/06/01
+* 功能 ：require.js 配置文件
+* map中定义的内容，可以通过text!/css!应用
 */
 
 define([],function(){
