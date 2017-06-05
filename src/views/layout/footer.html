@@ -1,0 +1,33 @@
+<style>
+	body.loaded .loader-inner{
+	  	display: block;
+	}
+	.loader-inner{
+		display: none;
+		position: fixed;
+		z-index: 100;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #333;
+		opacity: 0.3;
+	}
+	.loader-inner .loader-content {
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	    transition : all 1.5s ease-in;
+	    -webkit-transition : all 1.5s ease-in;
+	} 
+</style>
+<div class="loader-inner">
+  <div class="loader-content">
+    <img src="/assets/img/loading.gif">
+  </div>
+</div>
+<!-- bootstrap info alert -->
+<div id="alert-info"></div>
+<!-- bootstrap link alert -->
+<div id="alert-link"></div>

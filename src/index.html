@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--inline[/views/layout/head.html]-->
+  </head>
+  <body>
+    <!--inline[/views/index.html]-->
+    <!-- 在页面中注入一个元素，id 为 cacheloading, data-init 为调用的方法名 -->
+    <div id="cacheloading" data-init="login">
+      <script type="text/javascript">
+        window.submitLogin = false;
+        +function(){
+          var login = document.querySelector("#loginSubmit");
+          var username = document.querySelector("#username");
+          var password = document.querySelector("#password");
+          login.addEventListener("click", function(){
+            if(password.value && password.value){
+              document.querySelector("body").className += " loaded";
+              if(typeof window.submitLogin == "function"){
+                setTimeout(window.submitLogin, 0);
+              }else{
+                window.submitLogin = true;
+              }
+            }
+          });
+        }();
+      </script>
+      <!--inline[/views/layout/footer.html]-->
+      <script src="/app/index.js?__inline"></script>
+    </div>
+  </body>
+</html>
