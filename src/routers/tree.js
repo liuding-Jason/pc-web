@@ -22,7 +22,7 @@ define("sidebar/tree", [], function(){
     "name" : "首页",
     "icon" : "fa fa-desktop",
     "url"  : "/home?a=1&b=2&c=3",
-    "view" : "",
+    "view" : "text!" + __uri("/pages/home/home.html"),
     "rely" : __uri("/pages/home/home.js"),
     "loading" : true
   },{

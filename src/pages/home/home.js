@@ -1,15 +1,24 @@
 /*
-* Author： qiaomu@ifmuse.com
-* Date: 2016/06/01
+* 商品信息
 */
-define(["if!$", "css!" + __uri("./home.less")], function($){
-  function home(){
+define([
+	"if!$" , 
+	"baseUtil"
+	], function($ , BaseUtil){
 
-    this.$body.text("hello , 这里是 home 页面");
+	class Home extends BaseUtil {
 
-    this.hideLoading();
-  }
-  return home;
+		constructor(){
+			super() ;
+		}
+
+		// init(){
+		// 	//this.hideLoading();
+		// 	// this.$body.text("hello , 这里是 home 页面");
+		// }
+
+	}
+
+	return Home ;
 });
-
-
+ 
