@@ -1,6 +1,6 @@
 /*
-* 功能 ：require.js 配置文件
-* map中定义的内容，可以通过text!/css!应用
+* Author： qiaomu@ifmuse.com
+* Date: 2016/06/01
 */
 
 define([],function(){
@@ -23,17 +23,7 @@ define([],function(){
       // 模拟 Map 对象
       "map": __uri("/libs/shim/map.js") + "?",
       // router / hash 资源
-      "router": __uri("/common/router/hashrouter.js") + "?" ,
-      // 日期选择器
-      "daterangepicker": __uri("/libs/date/datepicker.js") + "?" ,
-      // month 选择器
-      "datepicker": __uri("/libs/date/bootstrap-datepicker.min.js") + "?" ,
-      // moment时间处理工具
-      "moment": __uri("/libs/date/moment.min.js") + "?" ,
-      // datatable
-      "dataTable": __uri("/libs/datatables/jquery.dataTables.min.js") + "?" ,
-      // base components fle
-      "baseUtil": __uri("/pages/base/baseUtil.js") + "?"  
+      "router": __uri("/common/router/hashrouter.js") + "?"
       
     },
     map: {

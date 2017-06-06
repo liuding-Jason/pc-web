@@ -1,17 +1,17 @@
 {
-  "name": "share.kuandd.com-front",
-  "version": "0.0.1",
-  "description": " ",
+  "name": "ktask.kuandd.com-front",
+  "version": "1.0.0",
+  "description": "k计划任务",
   "main": "index.js",
   "scripts": {
     "test": "fis3 server start && npm run dev",
-    "dev": "cd src && fis3 release dev -wL",
+    "dev": "cd src && fis3 release dev -w",
     "qa": "cd src && fis3 release qa"
   },
   "keywords": [
     "fis3"
   ],
-  "author": "liuding@ifmuse.com",
+  "author": "qiaomu@ifmuse.com",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {}

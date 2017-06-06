@@ -1,6 +1,6 @@
 /*
-* 功能 ：加载路由功能，配置路由对应的执行函数
-*
+* Author： qiaomu@ifmuse.com
+* Date: 2016/06/01
 */
 (function(){
   function main(){

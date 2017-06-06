@@ -1,6 +1,6 @@
 /*
-* 功能 ：basket配置白名单，白名单中的文件，会在第一次加载之后，缓存到用户的localStorage中，
-* 下次再请求相同的资源就会走本地localStorage读取
+* Author： qiaomu@ifmuse.com
+* Date: 2016/06/01
 */
 define([], function () {
   let cache = {
