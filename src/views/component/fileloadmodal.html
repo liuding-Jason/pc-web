@@ -1,0 +1,40 @@
+<!-- 
+  
+  蒙版导入文件组件
+  使用方式：
+  <link rel="import" href="../../views/component/fileloadmodal.html?__inline" />
+  注意：目前文件上传模版中使用的关键两个因素，第一蒙版id选择器，第二蒙版提交按钮id选择器 ，都是固定的，这种在同一个页面中需要
+  两次调用该组件会出现问题，需要将上面的因素设计为可配置的
+ -->
+
+<!-- 蒙版区 - 添加文件 -->
+<div class="modal fade" id="importFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">数据导入</h4>
+      </div>
+      <div class="modal-body">
+        <form class="row" enctype="multipart/form-data">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label>请选择您要上传的文件</label>
+              <label class="input-group import-file">
+                <input class="hide" type="file" name="file">
+                <span class="form-control upload-file-name">请选择文件</span>
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-folder-open"></i>
+                </span>
+              </label>
+          </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">关闭
+       </button><button type="button" class="btn btn-primary" id="submit-file-button">上传
+        </button> 
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>

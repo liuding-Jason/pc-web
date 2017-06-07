@@ -50,7 +50,7 @@ define([
 			/*
 			* 这里count listShopData是测试数据，实际开发中，将接入服务端数据
 			*/
-		  	let count = 1000 , 
+		  	let countPage = 1000 , 
 		  		listShopData = [{
 		  			name : "1" ,
 		  			brandClass : "A" ,
@@ -77,7 +77,7 @@ define([
           	}] ;
           	let {pathname , query} = this.hand.getLocation() ;
           	query['a'] = 1 ;
-          	let newListShopData = listShopData.map((item) => {
+          	let listData = listShopData.map((item) => {
 	            let newItem = Object.assign({} , item) ;
 	            newItem['photos'] = `<div class='tableImg fixAuto'>
 	                                <img data-exif=${item['photos']} title='图片' onerror="this.src='/assets/img/auto.png'" src=${item['photos']} />
@@ -86,12 +86,7 @@ define([
           	});
           	$('#shop-detail').html("") ;
 			let html = this.setTemplate("id_201706060851" , {
-				listHead : listHead ,
-	            listData : newListShopData ,
-	            countPage : count ,
-	            pageNum : pageNum ,
-	            perpage : perpage ,
-	            paginateUrl : pathname +"?" + $.param(_.omit(query, 'pageNum','perpage')) + "&"
+				listHead , listData , countPage , pageNum , perpage 
 	        }) ;
 	        $("#shop-detail").html(html) ;
 		}	

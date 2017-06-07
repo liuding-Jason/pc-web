@@ -6,6 +6,7 @@
 
 define([
 	"if!$" ,
+	"if!_" ,
 	"ajax" , 
 	"urlhand" , 
 	"daterangepicker" ,
@@ -13,36 +14,40 @@ define([
 	"dataTable" ,
 	__uri("../../common/require/template.js") ,
 	__uri("./buttons.js")
-	] , function($ , Ajax , urlhand  , DatePicker , datepicker , dataTable , template , Buttons){
+	] , function($ , _ , Ajax , urlhand  , DatePicker , datepicker , dataTable , template , Buttons){
 	class BaseUtil {
 		constructor(){
 			this.hand = urlhand() ;
 			this.params = this.hand.getQuery() ;
+			this.fileLoadFlag = false ;
 		}
 		// 初始化
-		init(param = {}){
-			// let {
-			// 	defOpt = {} , analyseAjaxData = function(){}
-			// } = param ;
+		init(defOpt = {} , callback = function(){}){
+			// 获取参数
+			this.params = Object.assign(defOpt , this.params) ;
+			callback() ;
+		}
 
-			// // 获取参数
-			// this.params = Object.assign(defOpt , this.params) ;
-			
-			// // 初始化日期插件
-			// this.setDate() ;
-			// this.setMonthDate() ;
-			
-			// this.showLoading() ;
-			// let paramsObj = this.setAjaxParam(this.params) ;
-			// this.getAjaxData(paramsObj)
-			// .then(({code = void 0 , data = {}}) => {
-			// 	//this._offEchartsLoading();
-			// 	if(parseInt(code) === 0){
-			// 		analyseAjaxData(data) ;
-			// 	}
-			// }).then(()=>{
-			// 	this.hideLoading();
-			// });
+		/*
+		* judge data
+		*/
+		judgeData(code , message){
+			if(code * 1 !== 0) {
+				alert(message);
+				return false ;
+			}
+			return true ;
+		}
+
+		updateQuery(...args){
+			return this._head.update(...args);
+		}
+		reload(...args){
+			if(args.length > 0){
+				this.updateQuery(...args);
+			}else{
+				window.location.reload(true);
+			}
 		}
 
 		/*
@@ -51,7 +56,7 @@ define([
 		* @params -- 传递的参数值
 		*/  
 		getAjaxData(options = {} , params){
-			return new Ajax(options).send(params);
+			return new Ajax(options).send(params) ;
 		}
 
 		// 绘制datatable数据
@@ -195,6 +200,12 @@ define([
 		*/
 		setTemplate(conId  , data){
 			let obj = {conId , data} ; 
+          	let {pathname , query} = this.hand.getLocation() ;
+			if(!$.isEmptyObject(query)){
+				data['paginateUrl'] = pathname + "?" + $.param(_.omit(query, 'pageNum','perpage')) + "&"
+			}else{
+				data['paginateUrl'] = pathname + "?" ;
+			}
 			return template.loadData(obj) ;
 		}
 
@@ -202,9 +213,73 @@ define([
 		* fa-toggle-close
 		*/
 		triggerToggleClose(){
-			$(".fa-toggle-close").trigger("click");
+			$(".fa-toggle-close").trigger("click") ;
+		}
+
+		/*
+		* 操作文件上传蒙版
+		*/
+		importFileModal(params = {}){
+			let {
+				modalId = "#importFileModal" , subBtnId = "#submit-file-button" , loadUrl = ""
+			} = params ;
+			$(modalId).modal() ;
+			let _this = this ;
+			let $body = $(".modal-body form", modalId) ;
+	        $(".upload-file-name", $body).html("请选择文件") ;
+	      	$(modalId).on("change","input[type='file']", function(){
+	        	var files = this.files[0];
+	        	var { type, name } = files;
+	        	if(/\.csv$/i.test(name)){
+		        	let $body = $(".modal-body form", modalId) ;
+		        	$(".upload-file-name", $body).html(name) ;
+		        	_this.fileLoadFlag = true ;
+		        }else{
+		        	alert(name + " 不是 CSV 格式文件\n请上传 CSV 格式文件");
+		        	_this.fileLoadFlag = false
+	        	}
+	        	return false ;
+	      	}) ;
+	      	this.importAjaxFun(modalId , subBtnId , loadUrl) ;
+		}
+		// 实现上传功能
+		importAjaxFun(modalId , subBtnId , loadUrl){
+			$(subBtnId).off("click").on("click" , (ev) => {
+				if(!this.fileLoadFlag){
+					alert("请选择上传的文件！");
+					return ;
+				}
+				if(loadUrl === ""){
+					alert("上传失败！") ;
+					this.reload() ;
+					throw "loadUrl is needed in fileload!" ;
+				}
+				// TODO test
+				console.log("loadFile");
+				return ;
+				let $body = $(".modal-body form", modalId);
+        		let form = new FormData($body.get(0));
+				this.getAjaxData({
+	          		contentType: false,
+	          		processData: false,
+	          		forceSync: false,
+	         		xhrFields: {
+	            	withCredentials: true
+	          		},
+	          		crossDomain: true,
+	          		mimeType : "multipart/form-data",
+	          		url  : loadUrl
+		        })
+		        .send(form, false).then( ({message}) => {
+		          alert(message);
+		          this.reload() ;
+		        }).catch(function(e){
+		          let { data } = e;
+		          let { errorList = [] } = data;
+		          alert(errorList.join("\n"));
+		        }) ;
+			});
 		}
 	}
-
 	return BaseUtil ;
 });
