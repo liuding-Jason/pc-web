@@ -19,39 +19,26 @@
  */
 define("sidebar/tree", [], function(){
   let router = [{
-    "name" : "首页",
-    "icon" : "fa fa-desktop",
-    "url"  : "/home?a=1&b=2&c=3",
-    "view" : "",
-    "rely" : __uri("/pages/home/home.js"),
-    "loading" : true
+    "name" : "商品管理" ,
+    "icon" : "fa fa-desktop" ,
+    "url"  : "/home" ,
+    "view" : "text!" + __uri("/pages/prodManage/prodManage.html") ,
+    "rely" : __uri("/pages/prodManage/prodManage.js") ,
+    "loading" : false
   },{
-    "name" : "A",
-    "icon" : "fa fa-desktop",
-    "view" : "",
-    "node" : [{
-      "name" : "B",
-      "icon" : "fa fa-desktop",
-      "url"  : "/home2?a=1&b=2&c=3",
-      "view" : "",
-      "rely" : __uri("/pages/home/home.js"),
-      "loading" : true
-    }],
-    "loading" : true
-  },{
-    "name" : "TEST B",
-    "icon" : "fa fa-desktop",
-    "url"  : "/test-b",
-    "view" : "",
-    "rely" : __uri("/pages/test-b/test-b.js"),
-    "loading" : true
-  },{
-    "name" : "TEST C",
-    "icon" : "fa fa-desktop",
-    "url"  : "/test-c",
-    "view" : "",
-    "rely" : __uri("/pages/test-c/test-c.js"),
-    "loading" : true
+    "name" : "订单管理" ,
+    "icon" : "fa fa-table" ,
+    "url"  : "/orderManage" ,
+    "view" : "text!" + __uri("/pages/orderManage/orderManage.html") ,
+    "rely" : __uri("/pages/orderManage/orderManage.js") ,
+    "loading" : false
+  } , {
+    "name" : "会员管理" ,
+    "icon" : "fa fa-user" ,
+    "url"  : "/memberManage" ,
+    "view" : "text!" + __uri("/pages/memberManage/memberManage.html") ,
+    "rely" : __uri("/pages/memberManage/memberManage.js") ,
+    "loading" : false
   }];
 
   return router;

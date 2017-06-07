@@ -1,0 +1,132 @@
+<div>
+  <!-- page title -->
+  <div class="page-title">
+    <div class="title_left">
+      <h3>测试模块 <small>/ Test Modules </small></h3>
+    </div>
+    
+    <!-- 测试datepicker组件 -->
+    <div class="title_right">
+        <link rel="import" href="../../views/component/datepicker.html?__inline">  
+    </div>
+  </div>
+  
+  <!-- 测试buttons组件 -->
+  <div class="row dailySales">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><i class="fa fa-fw fa-bar-chart"></i>Button Component<small>/ Button Test </small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <link rel="import" href="../../views/component/dateshow.html?__inline">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          </ul>
+          <div id="buttons"></div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div>Button Test</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试underscore模版 -->
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><i class="fa fa-table fa-fw"></i>Template Component <small>/ Template Test </small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <link rel="import" href="../../views/component/dateshow.html?__inline">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content ">
+          <div id="data-screen"></div>
+          <script id="id_201706062041" type="text/template">
+            <div class="sta-tables">
+              <div class="row">
+                <div class="sta-tables-title col-md-1 col-sm-1 col-xs-1">总数</div>
+                <div class="sta-tables-con col-md-11 col-sm-11 col-xs-11">
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">客户数量</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumCustomers']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">销售员数量</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumSalers']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">订单数量</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumOrders']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">销售总额</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumSalesAmount']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">销售总量</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumOrderQuantity']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">总重量/g</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumTotalWeight']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">进货总额</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumPurchaseAmount']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">总毛利</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumGrossProfit']%></div>
+                  </div>
+                  <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                    <div class="sta-item-title col-md-8 col-sm-8 col-xs-8">毛利率</div>
+                    <div class="sta-item-num col-md-4 col-sm-4 col-xs-4"><%=data['sumMarginRate']%>%</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </script>
+          <!-- <script type="text/template" id="tpl">
+            <% _.each(data, function(n){ %>
+              <p>姓名：<%= n.name %>,年龄：<%= n.age %>,性别：<%= n.sex %></p>
+            <% }); %>
+          </script> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- tablePage测试 -->
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><i class="fa fa-fw fa-area-chart"></i>TablePage Component <small>/ TablePage Test </small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <link rel="import" href="../../views/component/dateshow.html?__inline">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content table-content"> 
+                    <div id="shop-detail"></div>                   
+                    <script id="id_201706060851" type="text/html">
+                      <link rel="import" href="../../views/component/tablePage.html?__inline">  
+                    </script>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

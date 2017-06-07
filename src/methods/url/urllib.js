@@ -23,6 +23,17 @@ define(["urlparse"], function(urlparse){
       this.replace(this.splicedURL(query, pathname));
     },
     /**
+    *
+    */
+    this.getParams = function(key){
+      let {query = {}} = location ;
+      if(query.hasOwnProperty(key)){
+        return query[key] ;
+      }
+      return "" ;
+    }
+
+    /**
      * 拼接 url 
      * @param  {Object} query    参数参数对象 覆盖原有的参数
      * @param  {[type]} pathname 资源路径    覆盖原有的资源路径

@@ -1,6 +1,6 @@
 /*
-* Author： qiaomu@ifmuse.com
-* Date: 2016/06/01
+* 功能 ：basket配置白名单，白名单中的文件，会在第一次加载之后，缓存到用户的localStorage中，
+* 下次再请求相同的资源就会走本地localStorage读取
 */
 define([], function () {
   let cache = {
@@ -29,7 +29,17 @@ define([], function () {
     },
     "placeholders": {
       "url": __uri("/libs/other/placeholders.jquery.min.js") 
-    }
+    } ,
+    "es5shim" : {
+      "skipCache": false,
+      "polyfill" : (Object['assign'] ? true : false),
+      "url" : __uri("/libs/shim/es5-shim.js")
+    },
+    "es6shim" : {
+      "skipCache": false,
+      "polyfill" : (Object['assign'] ? true : false),
+      "url" : __uri("/libs/shim/es6-shim.js")
+    },
   };
   var module = {
     "load" : function(name, req, onLoad, config){
