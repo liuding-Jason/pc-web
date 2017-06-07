@@ -5,6 +5,7 @@
 define(["if!$" , "baseUtil"] , function($ , BaseUtil){
 	const prodList = "/admin/spu/list" ;
 	const fileLoad = "/admin/spu/importData" ;
+	const fileDownload = "/admin/spu/exportData" ;
 	const perpage = 20 ;
 
 	class ProdManange extends BaseUtil {
@@ -19,6 +20,7 @@ define(["if!$" , "baseUtil"] , function($ , BaseUtil){
 			// 附加功能
 			this.uploadFile() ;
 			this.downloadFile() ;
+			this.searchingInput() ;
 		}
 		// 获取商品列表
 		getProdList(defOpt){
@@ -104,12 +106,13 @@ define(["if!$" , "baseUtil"] , function($ , BaseUtil){
 				// TODO test
 				console.log("downloadFile") ;
 				return ;
-				window.location.href = "#/home" ;
+				window.location.href = fileDownload;
 			})
 		}
 
+		/*
+		* 
+		*/
 	}
-
 	return ProdManange ;
-
 });

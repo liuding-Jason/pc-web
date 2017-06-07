@@ -280,6 +280,18 @@ define([
 		        }) ;
 			});
 		}
+
+		/*
+		* 搜索框组件
+		*/
+		searchingInput(){
+			$("#search-input-btn").off("click").on("click" , "button , span" , (ev) => {
+				let input = $("#search-input-btn").find("input")[0] ;
+				if(!$(input).val()) return ;
+				this.hand.update({pageNum : 1 , spuSn : $(input).val()});
+			});
+		}
+
 	}
 	return BaseUtil ;
 });

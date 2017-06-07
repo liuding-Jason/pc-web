@@ -40,6 +40,14 @@
 }
 
 
+.fr {
+	float: right;
+}
+
+.fl {
+	float: left;
+}
+
 .base-green-bg{
 
  	background-color: #26B99A;
