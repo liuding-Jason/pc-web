@@ -67,7 +67,7 @@ define([
 			} = params ;
 			if($(conId).length === 0){
 				throw "conId is needed!" ;
-			}
+			};
 			$(conId).dataTable().fnDestroy();
 			$(conId).DataTable({
 				autoWidth	: true ,
@@ -79,12 +79,83 @@ define([
 			    order       : [[orderCol, 'desc']],    // 设置默认排序 - 第0列 降序排列 asc
 			    ordering    : ordering ,		// 设置是否启动排序
 			    processing  : false,			// 是否显示处理过程
-			    language   : dataTableUrl ,		// 设置提示语
+			    language    : conf.dataTableUrl ,		// 设置提示语
 			    bScrollCollapse : true ,
 			    scrollX : true ,				// 设置是否显示水平滚动条
 	        	data : data ,
 	        	columns : columns 
 	    	});
+		}
+
+		/*
+			@function ：绘制下拉列表组件
+			@params - params 设置的参数
+			页面结构 ：
+			<div id="your id"></div>
+			使用案例：
+			this.setSelectList({
+				conId : "#your id"
+				listData : [{
+					id : 1 ,
+					value : "A"
+				} , {
+					id : 2 ,
+					value : "B"
+				}]
+			})
+		*/
+		setSelectList(params = {}){
+			let {
+			 	conId = "" , listData = [] , showAll = false  , key = "order_status" ,
+			 	icon = "glyphicon glyphicon-list-alt" , info = "订单状态"
+			} = params ;
+			let liststr = `<label><i class=${icon}"></i> ${info} &nbsp;</label>
+							<select class='select-control'>` ;
+			if(showAll){
+				liststr += "<option data-id='0' data-type='全部'>全部</option>" ;
+			}
+			let listBody = this.drawSelectList(listData) ;
+			liststr += listBody ;
+			liststr += "</select>" ;
+			$(conId).html(liststr) ;
+			this.loadDefValue(conId , key , listData);
+			this._selectChange(conId , key);
+		}
+		/*
+		* drawSelect 
+		* 其他的模块继承之后，可根据实际情况进行方法重写，实现不同select渲染
+		*/ 
+		drawSelectList(listData){
+			let str = "" ;
+			listData.map((item , index) => {
+				let { id = "1" , value = "" } = item ;
+				str += `<option data-id=${id} data-type=${value} >${value}</option>` ;
+			}) ;
+			return str ;
+		}	
+		// select change
+		_selectChange(conId , key){
+			$(conId).off("change").on("change" , "select" , (ev) => {
+				ev.preventDefault() ;
+				let val = ev.target.value ;
+				let id = $(ev.target).find(`option[data-type=${val}]`).attr("data-id") ;
+				let obj = {} ;
+				obj[key] = id ;
+				console.log(key);
+				this.hand.update(obj) ;
+			});
+		}
+		// 加载默认值
+		loadDefValue(conId , key , listData = []){
+			let defVal = "全部" ;
+			for(let i = 0 , len = listData.length ; i < len ; i++){
+				if(listData[i]['id'] * 1 === this.hand.getParam(key) * 1){
+					defVal = listData[i]['value'] ;
+					break ;
+				}
+			}
+			// 加载默认值
+			$(conId).find("select").val(defVal);
 		}
 
 		/*
@@ -284,11 +355,16 @@ define([
 		/*
 		* 搜索框组件
 		*/
-		searchingInput(){
+		searchingInput(placeholder = "请输入" , conId = "" , type = "keywords"){
+			let html = this.setTemplate("search-input-script" , {placeholder}) ;
+			$(conId).html(html);
 			$("#search-input-btn").off("click").on("click" , "button , span" , (ev) => {
 				let input = $("#search-input-btn").find("input")[0] ;
 				if(!$(input).val()) return ;
-				this.hand.update({pageNum : 1 , spuSn : $(input).val()});
+				let obj = {} ;
+				obj['pageNum'] = 1 ;
+				obj[type] = $(input).val() ;
+				this.hand.update(obj);
 			});
 		}
 

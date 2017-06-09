@@ -20,12 +20,13 @@ define(["if!$" , "baseUtil"] , function($ , BaseUtil){
 			// 附加功能
 			this.uploadFile() ;
 			this.downloadFile() ;
-			this.searchingInput() ;
+			this.searchingInput("请输入SPU编号" , "#search-input-con") ;
 		}
 		// 获取商品列表
 		getProdList(defOpt){
-			// let {dateStart , dateEnd} = this.params ;
-			// this.getAjaxData({url : prodList} , {dateStart , dateEnd})
+			// //可以对参数进行筛选
+			// let {pageNum , perpage , spuSn} = this.params ;
+			// this.getAjaxData({url : prodList} , this.params)
 			// .then(({code = void 0 , data = {} , message = `${prodList} 请求失败！`}) => {
 			// 	if(!this.judgeData(code , message)) return ;
 			// 	this.drawProdList(data);
@@ -109,10 +110,6 @@ define(["if!$" , "baseUtil"] , function($ , BaseUtil){
 				window.location.href = fileDownload;
 			})
 		}
-
-		/*
-		* 
-		*/
 	}
 	return ProdManange ;
 });

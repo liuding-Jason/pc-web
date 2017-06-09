@@ -1,0 +1,29 @@
+<!-- 
+  数量蒙版
+ -->
+<div class="modal fade" id="backQuantityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">归还数量</h4>
+      </div>
+      <div class="modal-body">
+        <form class="row" enctype="multipart/form-data">
+          <div class="col-md-8">
+            <div class="form-group">
+              <label>请填入您要归还的数量</label><br/>
+              <input class="back-input" type="number" max="<%= total - back%>" name="number" min="0" placeholder="请填写数量"/>
+              <p style="margin-top: 10px;">共计：<%= total%> </p>
+              <p>已归还：<span class="red-color"><%= back%></span> </p>
+          </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">关闭
+       </button><button type="button" data-total="<%= total%>" data-value="<%= back%>" class="btn btn-primary" id="submit-quantity-button">归还
+        </button> 
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>

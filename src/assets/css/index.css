@@ -4553,3 +4553,27 @@ body.loaded .loader-inner{
 }
 
 
+.disable-input{
+  height: 34px ;
+  line-height: 34px;
+  padding-left: 12px;
+}
+
+.mem-user-image {
+  position: absolute;
+  right: 15px ;
+  height: 100px ;
+  width: 100px; 
+  border: 1px solid #ccc ;
+  border-radius: 50% ;
+  overflow: hidden;
+}
+
+.men-user-image img{
+  width: 100% ;
+}
+
+
+
+
+

@@ -1,17 +1,18 @@
 <!-- 
-  搜索input框
+  搜索input框 placeholder 需要传入
   默认 ： 向右浮动
  -->
-
-<div class="row" id="search-input-btn">
-  <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 fr" >
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="请输入SPU编号">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+<script type="text/template" id="search-input-script">
+  <div class="row" id="search-input-btn">
+    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-6 fr" >
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="<%= placeholder %>">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+</script>

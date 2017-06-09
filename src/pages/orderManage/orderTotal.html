@@ -1,0 +1,57 @@
+<!-- 订单详情 -->
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><i class="fa fa-fw fa-area-chart"></i>订单信息<small>/ Order Info </small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+        </ul>
+        <a class="btn btn-info btn-sm fr" onclick="history.back()" >返回</a>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_content table-content"> 
+                  <div class="row">
+                    <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                      <div class="sta-item-num col-md-5 col-sm-5 col-xs-5">下单日期</div>
+                      <div class="sta-item-num col-md-7 col-sm-7 col-xs-7"><%= createTime %></div>
+                    </div>
+                    <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                      <div class="sta-item-num col-md-5 col-sm-5 col-xs-5">下单数量</div>
+                      <div class="sta-item-num col-md-7 col-sm-7 col-xs-7"><%= totalQuantity %></div>
+                    </div>
+                    <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                      <div class="sta-item-num col-md-5 col-sm-5 col-xs-5">订单金额</div>
+                      <div class="sta-item-num col-md-7 col-sm-7 col-xs-7"><%= orderAmount %></div>
+                    </div>
+                    <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                      <div class="sta-item-num col-md-5 col-sm-5 col-xs-5">归还数量</div>
+                      <div class="sta-item-num col-md-7 col-sm-7 col-xs-7"><%=backTotalQuantity %></div>
+                    </div>
+                    <div class="sta-tables-item col-md-3 col-sm-4 col-xs-6">
+                      <div class="sta-item-num col-md-5 col-sm-5 col-xs-5">用户名称</div>
+                      <div class="sta-item-num col-md-7 col-sm-7 col-xs-7"><%= customerName %></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="sta-tables-item ">
+                      <div class="sta-item-title col-md-1 col-sm-2 col-xs-2">备注</div>
+                      <div class="sta-item-num col-md-11 col-sm-10 col-xs-10">
+                       <% if(location.href.toLowerCase().indexOf('orderinfo') !== -1){ %>
+                         <input value="<%= remark%>" readonly style="width:99%;height: 35px ;display: inline-block;padding: 4px 10px ;border-radius: 8px;border: 1px solid #ccc ;" />
+                       <% }else {%>
+                          <input value="<%= remark%>" style="width:85% ;height: 35px ;display: inline-block;padding: 4px 10px;border-radius: 8px;border: 1px solid #ccc ;" />&nbsp;&nbsp;&nbsp;<a class="btn btn-primary btn-sm" data-value="<%= remark%>" id="submit-remark" style="line-height:1.8 ;">提交</a>
+                       <%}%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

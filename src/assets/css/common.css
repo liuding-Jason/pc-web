@@ -113,6 +113,27 @@
 	margin-left: 10px ;
 }
 
+
+.mg0{
+	margin: 0 ;
+}
+
+.minW150{
+	min-width: 150px ;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.red-color{
+	color: red ;
+}
+
 .date-con-left , .date-con-right , .date-con-middle{
 	margin-top: 3px;
 }
@@ -1930,7 +1951,22 @@ div.dataTables_wrapper div.dataTables_info{
 }
 
 
-#dingtalkSales table td,
-#dingtalkSales table th{
-	white-space: nowrap;
+.back-input{
+	display: inline-block;
+	width: 95% ;
+	height: 30px ;
+	line-height: 30px ;
+	border-radius: 8px ;
+	border:1px solid #ccc ;
+	padding-left: 5px ;
+}
+
+.edit-div{
+  float: left;
+  margin: 0 ;
+}
+
+.edit-select {
+  display: inline-block;
+  width: 100% ;
 }

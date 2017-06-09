@@ -1,0 +1,124 @@
+<!-- 
+	会员编辑
+ -->
+<form class="form-horizontal">
+	<div class="row">
+      	<div class="mem-user-image">
+	    	<img data-exif="<%= userInfo['userFace'] %>" title='图片' style="width: 100% ;" onerror="this.src='/assets/img/host.jpg'" src="<%= userInfo['userFace'] %>" />
+	    </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label">手机号码</label>
+      <div class="col-sm-3">
+		<div class="disable-input"><%= userInfo['phoneNumber'] %></div>	
+      </div>
+    </div>
+	<div class="row form-group">
+      <label class="col-sm-2 control-label">昵称</label>
+      <div class="col-sm-3">
+		<div class="disable-input"><%= userInfo['nickName'] %></div>	
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label">性别</label>
+      <div class="col-sm-3 customerList edit-div">
+		<select class="select-control edit-select" name="genderId" value="<%= userInfo['genderId'] %>" name="gender" >
+			<%for(var i = 0 , len = listGenderInfo.length ; i < len ; i++){ %>
+				<% var item = listGenderInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label" >行业</label>
+      <div class="col-sm-5 customerList edit-div">
+		<select class="select-control edit-select" name="industryId" value="<%= userInfo['industryId'] %>" >
+			<%for(var i = 0 , len = listIndustyInfo.length ; i < len ; i++){ %>
+				<% var item = listIndustyInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label">公司</label>
+      <div class="col-sm-5">
+        <input class="form-control" name="companyName" value="<%= userInfo['companyName'] %>" type="text" placeholder="请输入公司名称"/>
+      </div>
+    </div>
+ 	<div class="row form-group">
+      <label class="col-sm-2 control-label" >职务</label>
+      <div class="col-sm-5 customerList edit-div">
+		<select class="select-control edit-select" name="postId" value="<%= userInfo['postId'] %>" >
+			<%for(var i = 0 , len = listPostInfo.length ; i < len ; i++){ %>
+				<% var item = listPostInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+    </div>
+	<div class="row form-group">
+      <label class="col-sm-2 control-label" >地区</label>
+      <div class="col-sm-3 customerList edit-div">
+		<select class="select-control edit-select" name="provinceId" value="<%= userInfo['provinceId'] %>" >
+			<%for(var i = 0 , len = listProvinceInfo.length ; i < len ; i++){ %>
+				<% var item = listProvinceInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+      <div class="col-sm-3 customerList edit-div" >
+		<select class="select-control edit-select" name="cityId" value="<%= userInfo['cityId'] %>" >
+			<%for(var i = 0 , len = listCityInfo.length ; i < len ; i++){ %>
+				<% var item = listCityInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+      <div class="col-sm-4 customerList edit-div">
+		<select class="select-control edit-select" name="districtId" value="<%= userInfo['districtId'] %>" >
+			<%for(var i = 0 , len = listDistrict.length ; i < len ; i++){ %>
+				<% var item = listDistrict[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label">出生年月</label>
+      <div class="col-sm-3">
+        <input class="form-control" name="birthDate" value="<%= userInfo['birthDate'] %>" type="date" placeholder="请输入年"/>
+      </div>
+    </div>
+	<div class="row form-group">
+      <label class="col-sm-2 control-label" >会员等级</label>
+      <div class="col-sm-5 customerList edit-div">
+		<select class="select-control edit-select" name="levelId" value="<%= userInfo['levelId'] %>" >
+			<%for(var i = 0 , len = listLevelInfo.length ; i < len ; i++){ %>
+				<% var item = listLevelInfo[i] ; %>
+				<option value="<%= item['value'] %>"><%= item['text']%></option>
+			<%}%>
+		</select>	
+      </div>
+    </div>
+	<div class="row form-group">
+      <label class="col-sm-2 control-label">会员有效期</label>
+      <div class="col-sm-3">
+        <input class="form-control" name="expireDate" value="<%= userInfo['expireDate'] %>" type="date" placeholder="请输入年"/>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label">备注</label>
+      <div class="col-sm-5">
+        <input class="form-control" name="remark" value="<%= userInfo['remark'] %>" type="text" placeholder="请输入公司名称"/>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-5">
+        <span class="btn btn-primary edit-submit-btn">确定</span>
+        <a class="btn btn-info" href="#/memManage" >返回</a>
+      </div>
+    </div>
+</form>

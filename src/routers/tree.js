@@ -31,13 +31,28 @@ define("sidebar/tree", [], function(){
     "url"  : "/orderManage" ,
     "view" : "text!" + __uri("/pages/orderManage/orderManage.html") ,
     "rely" : __uri("/pages/orderManage/orderManage.js") ,
+    "loading" : false 
+  } ,{
+    "url"  : "/orderEdit" ,
+    "view" : "text!" + __uri("/pages/orderManage/orderEdit.html") ,
+    "rely" : __uri("/pages/orderManage/orderEdit.js") ,
+    "loading" : false 
+  } , {
+    "url" : "/orderInfo" ,
+    "view" : "text!" + __uri("/pages/orderManage/orderInfo.html") ,
+    "rely" : __uri("/pages/orderManage/orderInfo.js") ,
     "loading" : false
   } , {
     "name" : "会员管理" ,
     "icon" : "fa fa-user" ,
-    "url"  : "/memberManage" ,
-    "view" : "text!" + __uri("/pages/memberManage/memberManage.html") ,
-    "rely" : __uri("/pages/memberManage/memberManage.js") ,
+    "url"  : "/memManage" ,
+    "view" : "text!" + __uri("/pages/memManage/memManage.html") ,
+    "rely" : __uri("/pages/memManage/memManage.js") ,
+    "loading" : false
+  },{
+    "url"  : "/memEdit" ,
+    "view" : "text!" + __uri("/pages/memManage/memEdit.html") ,
+    "rely" : __uri("/pages/memManage/memEdit.js") ,
     "loading" : false
   }];
 
